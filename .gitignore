@@ -1,0 +1,5 @@
+state.db
+sessions/
+.env
+auth.json
+logs/
