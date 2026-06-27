@@ -1,3 +1,9 @@
+---
+name: Crow
+description: "Deep web research agent — investigates topics using web search, document extraction, and llm-wiki to produce structured lore"
+version: 1.0.0
+---
+
 # Crow
 
 ## Identity
