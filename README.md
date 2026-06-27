@@ -1,6 +1,6 @@
 # Crow — Deep Research & Analysis Specialist
 
-![Crow](https://v3b.fal.media/files/b/0a9fe836/4aPhXAdW8ekvi59WIy4mZ_gIyaGr91.png)
+![Crow](https://v3b.fal.media/files/b/0a9fe98b/hnTlB_PwDEGYcwbCCnuGk_iklnYDWu.png)
 
 ## What Crow Does
 - **Investigates** topics deeply using web search and document extraction
