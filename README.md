@@ -1,57 +1,62 @@
-# Crow — Deep Web Research Agent
+# Crow — Deep Research & Analysis Specialist
 
-Crow is a [Hermes Agent](https://hermes-agent.nousresearch.com) profile that produces **lore**: structured, interconnected knowledge bases built from deep web research. It is part of a multi-agent fleet where each agent has a distinct role — Crow's role is research, and its output is consumed by other agents (especially kashik, the guide writer).
+![Crow](https://v3b.fal.media/files/b/0a9fe836/4aPhXAdW8ekvi59WIy4mZ_gIyaGr91.png)
 
 ## What Crow Does
+- **Investigates** topics deeply using web search and document extraction
+- **Analyzes** markets, technologies, competitors, and trends
+- **Synthesizes** findings into structured research reports
+- **Cross-references** multiple sources to identify patterns and insights
+- **Extracts** data from web pages, PDFs, and documentation
 
-1. Takes a research topic or question.
-2. Runs the canonical pipeline: `query → web_search → web_extract → synthesize → llm-wiki structure`.
-3. Evaluates every source for credibility, recency, and corroboration (minimum 2 independent sources for any canonical claim).
-4. Writes structured lore files in `llm-wiki` format at `~/crow-lore/<topic>/`.
-5. Uses the `/learn` command to persist cross-cutting meta-knowledge across sessions.
+## Quick Start
 
-## Lore Directory Layout
-
-```
-~/crow-lore/<topic>/
-├── index.md
-├── entities/
-├── concepts/
-├── comparisons/
-└── raw/
+### Install
+```bash
+hermes profile install https://github.com/SouthpawIN/crow
 ```
 
-- `index.md` — entry point and table of contents
-- `entities/` — people, organizations, systems, concrete things
-- `concepts/` — ideas, theories, frameworks
-- `comparisons/` — side-by-side analyses
-- `raw/` — raw extracted source material (provenance trail)
+### Verify
+```bash
+hermes profile list
+```
 
-## Profile Files
+### Run
+```bash
+hermes chat --profile crow
+```
 
-| File | Purpose |
-|------|---------|
-| `SOUL.md` | Identity, personality, and role description |
-| `AGENTS.md` | Procedural workflow and conventions |
-| `config.yaml` | Hermes Agent configuration |
-| `herm/tui.json` | TUI settings (not distributed) |
+## Example Prompts
 
-## Multi-Agent Fleet
+- *"Research the current state of serverless databases — what are the best options?"*
+- *"Find out how our competitors handle real-time data synchronization"*
+- *"Search for academic papers on consensus algorithms and summarize the findings"*
+- *"Investigate what happened to that startup we were watching last year"*
+- *"Research the legal requirements for handling user data in the EU"*
+- *"Compare the top 5 open-source queue systems and report on their tradeoffs"*
+- *"Find technical documentation on implementing WebSockets at scale"*
 
-| Agent | Role |
-|-------|------|
-| senter | Triage |
-| chizul | Worker |
-| klerik | Profile editor |
-| anser | Discord support |
-| nous-girl | Brainstormer |
-| kashik | Guide writer (consumes Crow's lore) |
-| crow | Research (this agent) |
+## Key Features
+- Multi-source intelligence — combines web search, document extraction, and API queries
+- Pattern recognition — identifies trends and connections across sources
+- Research transparency — explains where findings came from and confidence levels
+- Output flexibility — produces everything from brief summaries to full research reports
 
-## Installation
+## Integration with Other Agents
+Crow is the fleet's research specialist. Senter dispatches research tasks to Crow. The findings are shared with Kashik (documentation), Chizul (implementation), and other agents. Anser defers to Crow when asked research questions.
 
-Copy `SOUL.md`, `AGENTS.md`, and `config.yaml` into a Hermes profile directory (e.g., `~/.hermes/profiles/crow/`). See the Hermes Agent docs for profile management.
+## Configuration
+`~/.hermes/profiles/crow/config.yaml`
 
-## License
+Key settings:
+- `search_engines` — preferred search sources (default: google, duckduckgo, brave)
+- `research_timeout` — max time for research tasks in minutes (default: 30)
+- `citation_style` — how to format sources (apa/mla/informal, default: informal)
+- `output_length` — preferred report length (brief/standard/comprehensive, default: standard)
 
-MIT
+## Troubleshooting
+
+**Research taking too long:** Lower `research_timeout` for quicker results, or adjust `output_length` to `brief`. Deep research needs time.
+
+**Poor source quality:** Add specific domains to `trusted_sources` config, or use `site:` search operator in prompts to target authoritative sites.
+**Part of the multi-agent fleet by SouthpawIN**
